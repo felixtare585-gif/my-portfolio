@@ -148,3 +148,26 @@ h1 {
         font-size: 2rem;
     }
 }
+/* Style for our interactive grader tool */
+.grader-tool {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between input and button */
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05); /* Slight highlight */
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+#userMarks {
+    background: #1e1e1e;
+    color: white;
+    border: 1px solid #00d4ff;
+    outline: none;
+    text-align: center;
+}
+
+#gradeResult {
+    min-height: 20px; /* Prevents the card from jumping when text appears */
+    font-size: 1.1rem;
+}
