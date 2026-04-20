@@ -1,173 +1,158 @@
+:root {
+    --electric-blue: #00d4ff;
+    --dark-blue-bg: #050a14;
+    --card-bg: #0a1628;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-    background: #0f172a;
+    background-color: var(--dark-blue-bg);
     color: white;
-}
-
-/* NAVBAR */
-.navbar {
-    position: sticky;
-    top: 0;
-    background: #0f172a;
-    padding: 15px;
     text-align: center;
 }
 
-.navbar a {
+/* Navbar Centering */
+.navbar {
+    position: fixed;
+    top: 0; width: 100%;
+    padding: 25px 0;
+    background: rgba(5, 10, 20, 0.9);
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+}
+
+.nav-links a {
     color: white;
-    margin: 0 15px;
     text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Hero & Floating Glowing Profile */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bg-video {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: -1;
+    filter: brightness(30%);
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--electric-blue);
+    box-shadow: 0 0 20px var(--electric-blue);
+    animation: float 4s ease-in-out infinite, glow 3s infinite alternate;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 10px var(--electric-blue); }
+    to { box-shadow: 0 0 30px var(--electric-blue), 0 0 50px var(--electric-blue); }
+}
+
+/* Social Links Blue */
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--electric-blue);
+    text-decoration: none;
+    border: 1px solid var(--electric-blue);
+    padding: 10px 25px;
+    border-radius: 30px;
     font-weight: bold;
 }
 
-.navbar a:hover {
-    color: cyan;
-}
-
-/* HERO */
-.hero {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid cyan;
-    box-shadow: 0 0 15px cyan;
-    animation: float 3s ease-in-out infinite;
-}
-
-h1 {
-    margin-top: 10px;
-}
-
-/* STATIC ROLE TEXT */
-.role {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: cyan;
-    font-weight: 500;
-    letter-spacing: 1px;
-    opacity: 0.9;
-}
-
-/* LINKS */
-.links {
-    margin-top: 15px;
-}
-
-.links a {
-    color: cyan;
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-/* SECTIONS */
+/* Sections Centering */
 .section {
-    padding: 40px 20px;
-    text-align: center;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
 }
 
-/* GRID */
-.grid {
+.container {
+    max-width: 900px;
+}
+
+.grid, .skills-grid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 20px;
+    margin-top: 40px;
 }
 
-/* CARDS */
-.card {
-    width: 220px;
-    padding: 20px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 10px;
-    transition: 0.3s;
+.card, .skill-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    width: 320px;
+    border: 1px solid #1a2a44;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 15px cyan;
-}
-
-/* CARD TEXT */
-.card h3 {
+.skill-card h3 {
+    color: var(--electric-blue);
     margin-bottom: 10px;
-    color: cyan;
 }
 
-.card p {
-    font-size: 14px;
-    opacity: 0.8;
-}
-
-/* PROJECT LINKS */
-.card a {
-    display: inline-block;
-    margin-top: 10px;
-    color: cyan;
-    text-decoration: none;
-}
-
-.card a:hover {
-    text-decoration: underline;
-}
-
-/* ANIMATION */
-@keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-    .grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .profile-pic {
-        width: 120px;
-        height: 120px;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-}
-/* Style for our interactive grader tool */
+/* Grader Styling */
 .grader-tool {
+    margin: 20px 0;
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between input and button */
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.05); /* Slight highlight */
-    border-radius: 10px;
-    margin: 15px 0;
+    gap: 10px;
 }
 
-#userMarks {
-    background: #1e1e1e;
+.grader-tool input {
+    background: #0d1117;
+    border: 1px solid var(--electric-blue);
+    padding: 10px;
     color: white;
-    border: 1px solid #00d4ff;
-    outline: none;
-    text-align: center;
+    border-radius: 5px;
 }
 
-#gradeResult {
-    min-height: 20px; /* Prevents the card from jumping when text appears */
-    font-size: 1.1rem;
+.grader-tool button {
+    background: var(--electric-blue);
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.view-link {
+    color: var(--electric-blue);
+    text-decoration: none;
+    font-size: 0.9rem;
 }
