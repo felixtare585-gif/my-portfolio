@@ -127,3 +127,35 @@
 
 </body>
 </html>
+function calculateGrade() {
+    // 1. Get the number from the input box
+    let marks = document.getElementById("userMarks").value;
+    
+    // 2. Find the empty <p> tag where we want to show the result
+    let result = document.getElementById("gradeResult");
+
+    // 3. The Logic (Same as your C++ code!)
+    if (marks === "") {
+        result.innerHTML = "Please enter a number first!";
+        result.style.color = "yellow";
+    } else {
+        let score = parseInt(marks); // Convert text to a number
+
+        if (score >= 70 && score <= 100) {
+            result.innerHTML = "Result: Grade A (Distinction) 🏆";
+            result.style.color = "#00ff88"; // Green for good grades
+        } else if (score >= 60 && score < 70) {
+            result.innerHTML = "Result: Grade B (Credit) ✅";
+            result.style.color = "#00d4ff";
+        } else if (score >= 50 && score < 60) {
+            result.innerHTML = "Result: Grade C (Pass) 👍";
+            result.style.color = "#ffffff";
+        } else if (score < 50 && score >= 0) {
+            result.innerHTML = "Result: Grade F (Fail) ❌";
+            result.style.color = "#ff4d4d"; // Red for fail
+        } else {
+            result.innerHTML = "Invalid Score! Enter 0-100.";
+            result.style.color = "orange";
+        }
+    }
+}
